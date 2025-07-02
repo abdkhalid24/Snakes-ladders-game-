@@ -9,7 +9,8 @@
 Snakes and Ladders is one of the most famous games that is big fun; it is a perfect game to play with family and friends. Although, with this website game, you can play it anywhere without any issue; you just should have a laptop or any electronic device. Also, you should make sure that you have good “Wi-Fi ”to open the website without any problems. It is a fun and exciting game with some obstacles and some small positives that may lead you to victory with little effort, and it certainly depends on luck because your only weapon will be the dice that you throw.
 
 ## wireframes 
-![alt text](<Screenshot 2025-06-30 at 11.46.17 AM.png>)
+![alt text](Wireframe.png)
+
 ***
 ### pseudo code
 
