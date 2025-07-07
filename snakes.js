@@ -76,13 +76,16 @@ rollingDice = () => {
   let ladders;
   
   // ...The function where it is response for random numbers (1-6) in empty bar...
-  let n1 = document.querySelector(".diceButton").addEventListener("click", function () {
+  document.querySelector(".diceButton").addEventListener("click", function () {
     rollingSound.play();
     
     let diceRoll = Math.floor(Math.random() * 6) + 1;
     document.querySelector(".empty-bar").innerText = diceRoll;
   });
 
+  numarr = Array.from(String(detectSnakesLadders()))
+  n1 = eval(numarr.shift())
+  n2 = eval(numarr.pop())
   updatePosition = (correction) => {
     // ...local variables here "for the changeing of the position"...
     if (n1 % 2 != 0) {
