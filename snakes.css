@@ -142,6 +142,7 @@ h1 {
     display: flex;
     border: 3px solid black;
     position: relative;
+    transition: left 0.5s;
     top: -335px; 
     left: -350px;
     /* left: -247px;
@@ -158,6 +159,8 @@ h1 {
     position: relative;
     top: -335px;
     left: -350px;
+    transition: left 0.5s;
+
 }
 
 /* #p1 {
@@ -168,8 +171,7 @@ h1 {
     /*left: -62px;
     z-index: 2;
   }
-  
-  #p2 {
+ #p2 {
     z-index: 2;
     position: relative;
     top: -55px;
@@ -179,39 +181,19 @@ h1 {
   } */
 
 
-Keys in CSS:
+/* Keys in CSS:
 /* - body: for hole body in html File */
 /* - h1: for the first hedding */
 /* - .playerTurn */
 /* - .leftSide */
-- #diceCont: fore the contanier of the dice
+/* - #diceCont: fore the contanier of the dice
 - #tog: the title of turn of player
-- #dice: the number of steps for a player
+- #dice: the number of steps for a player */
 /* - #dicebutton: button of click to acces a number of steps */
-- .cont : The holl contanier of the game ("which it is the board game") 
-- .cont div: container for a specifec box (1-100)
+/* - .cont : The holl contanier of the game ("which it is the board game") 
+- .cont div: container for a specifec box (1-100) */
 /* - #p1: name of the player peice
 - #p2: same thing to (p1) */
-- img: design for the Image.
+/* - img: design for the Image. */
 
 
-/* grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];
-grid-template-columns: auto 50px auto;
-grid-template-areas:  "header header header" 
-"footer footer footer"; */
-/* grid-template-columns: repeat(15, 5fr);
-grid-auto-rows: 200px; */
-/* grid-area: grid-row-begin / grid-column-begin / grid-column-begin/ grid-row-end / ;
-        3 / 2 / 1 / 4 */
-
-        /* grid-template-areas:
-    "    .      .      .      .      .        .      .      .      .      .    "
-    "    .      .      .      .      .        .      .      .      .      .    "
-    "    .      .      .      .      .        .      .      .      .      .    "
-    "    .      .      .      .      .        .      .      .      .      .    "
-    "    .      .      .      .      .        .      .      .      .      .    "
-    "    .      .      .      .      .        .      .      .      .      .    "
-    "    .      .      .      .      .        .      .      .      .      .    "
-    "    .      .      .      .      .        .      .      .      .      .    "
-    "    .      .      .      .      .        .      .      .      .      .    "
-    "    .      .      .      .      .        .      .      .      .      .    "; */
