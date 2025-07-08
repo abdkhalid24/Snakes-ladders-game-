@@ -1,189 +1,140 @@
-//Global variables here:
+// Global variables
+let rollingSound = new Audio("dice-142528.mp3");
+let winSound = new Audio("mixkit-winning-notification-2018.wav");
 
-let rollingSound = new Audio("dice-142528.mp3")
-let winSound = new Audio("mixkit-winning-notification-2018.wav")
-
-let pTurn = "red"
-let redPos = 0
-let bluePos = 0
-// ...player moves when he reach to the snake...
+let pTurn = "red";
+let redPos = 0;
+let bluePos = 0;
+// These variables are related to when the player touches them, the position will change.
 let snakes = [
-    [27, 5],
-    [40, 3],
-    [43, 18],
-    [54, 31],
-    [66, 45],
-    [76, 58],
-    [99, 41],
-    [89, 53],
+  [14, 4],
+  [57, 37],
+  [67, 51],
+  [69, 12],
+  [84, 27],
+  [93, 72],
+  [96, 76],
+  [98, 78]
 ]
 let ladders = [
-    [4, 25],
-    [13, 46],
-    [33, 49],
-    [42, 63],
-    [50, 69],
-    [62, 81],
-    [74, 92],
+  [2, 40],
+  [7, 16],
+  [10, 33],
+  [23, 87],
+  [30, 49],
+  [60, 64],
+  [71, 91],
+  [80, 100]
 ]
-let winner = null
-let diceRoll
 
-// ...First main function...
+let winner = null;
+let diceRoll = 0;
 
+// Show current turn
 playerTurn = () => {
+  // document.querySelector(".playerTurn").innerText =
+  //   pTurn === "red" ? "Red's turn" : "Blue's turn";
   if (pTurn === "red")
     document.querySelector(".playerTurn").innerText = "Red's turn"
   else if (pTurn === "blue") {
     document.querySelector(".playerTurn").innerText = "Blue's turn"
   }
-
-  document.querySelector("#p1").innerHTML = redPos
-  document.querySelector("#p2").innerHTML = bluePos
 }
-  // ...red position: player 1 in the game...
 
-redPosition = () => {
-  let redMove = document.querySelector("#p1")
+updatePosition = (position, playerId) => {
+  // To pick randomly number from 1 to 6 in 10 rows
+  const row = Math.ceil(position / 10);
+  const col = position % 10 === 0 ? 10 : position % 10;
 
-  redPos += diceRoll
+  let left, top;
 
-  redMove.style.left = `${redPos * 55}px`
-  redMove.style.top = `${redPos * 55}px`
+  if (row % 2 !== 0) {
+    left = (0 - col) * 54;
+  } else {
+    left = (col - 10) * 54;
+  }
+
+  top = -(row - -5) * 54;
+
+  const token = document.getElementById(playerId);
+  token.style.left = `${left}px`;
+  token.style.top = `${top}px`;
+
 }
-// ...blue position: player 2 in the game...
-bluePosition = () => {
-  let blueMove = document.querySelector("#p2")
 
-  bluePos += diceRoll
 
-  blueMove.style.left = `${bluePos * 55}px`
-  blueMove.style.top = `${bluePos * 55}px`
+// Apply snake or ladder
+detectSnakesLadders = (position) => {
+  for (let [head, tail] of snakes) {
+    if (position === head) return tail;
+  }
+  for (let [bottom, top] of ladders) {
+    if (position === bottom) return top;
+  }
+  return position;
+}
+
+// ...check for winner when the player reach the 100 box...
+checkWinner = () => {
+  // if the redPos reach the 100 it will win!
+  if (redPos === 100) {
+    document.querySelector(".playerTurn").innerText = "Red Wins!";
+    winSound.play();
+    // setting time with meli seconds
+    setTimeout(() => location.reload(), 2000);
+    return true;
+  }
+  // If bluePos reaches 100 then he wins!
+   else if (bluePos === 100) {
+    document.querySelector(".playerTurn").innerText = "Blue Wins!";
+    winSound.play();
+
+    setTimeout(() => location.reload(), 2000);
+    return true;
+  }
+  return false;
+}
+
+// ...First main function...
+startGame = () => {
+  redPos = 0;
+  bluePos = 0;
+  pTurn = "red";
+  updatePosition(redPos, "p1", 0);
+  updatePosition(bluePos, "p2", 15);
+  playerTurn();
 }
 
 // ...Second main function...
-startGame = () => {
-  // ...local variables here "for winning test...
-  pTurn = "red"
-  redPos = 0
-  bluePos = 0
+rollingDice = () => {
+  if (winner) return;
 
-  playerTurn()
-  redPosition()
-  bluePosition()
+  if (pTurn === "red") {
+    redPos += diceRoll;
+    if (redPos > 100) redPos -= diceRoll;
+    redPos = detectSnakesLadders(redPos);
+    updatePosition(redPos, "p1", 0);
 
+    if (!checkWinner()) pTurn = "blue";
+  } else {
+    bluePos += diceRoll;
+
+    if (bluePos > 100) bluePos -= diceRoll;
+    bluePos = detectSnakesLadders(bluePos);
+    updatePosition(bluePos, "p2", 15);
+    if (!checkWinner()) pTurn = "red";
+  }
+
+  playerTurn();
 }
-
-
-// document.getElementById("p1").style.transition = "all linear 0.5s"
-// document.getElementById("p2").style.transition = "all linear 0.5s"
-
-
-
 
 // ...The function where it is response for random numbers (1-6) in empty bar...
-
-detectSnakesLadders = (position) => {
-    for (let i = 0; i < snakes.length; i++) {
-      const head = snakes[i][0];
-      const tail = snakes[i][1];
-  
-      if (position === head) {
-        console.log(`Oops! Snake at ${position}, go down to ${tail}`);
-        return tail;
-
-      }
-    }
-  
-    for (let i = 0; i < ladders.length; i++) {
-      const bottom = ladders[i][0];
-      const top = ladders[i][1];
-  
-      if (position === bottom) {
-        console.log(`Nice! Ladder at ${position}, climb up to ${top}`);
-        return top;
-      }
-    }
-  
-    return position;
-  };
-// ...local variables here "for the changeing of the position"...
-updatePosition = (position, playerId, correction ) => {
-    const row = Math.ceil(position / 10); // row 1–10
-    const col = position % 10 === 0 ? 10 : position % 10; 
-  
-    let left, top;
-  
-    if (row % 2 !== 0) { 
-      left = ((10 - col) * 55);
-    } else { 
-      left = ((col - 1) * 55);
-    }
-  
-    top = (-(row - 1) * 55) - correction;
-  playerId = "p1"
-    token = document.getElementById("p1");
-    token.style.left = `${left}px`;
-    token.style.top = `${top}px`;
-  };
-  
-
-checkWinner = () => {
-    // check the winner when the player reach the 100 box
-    winSound.play()
-    
-    if (redPos === 100) {
-        document.querySelector(".playerTurn").innerText = "Red's Won!"
-    } else if (bluePos === 100) {
-        document.querySelector(".playerTurn").innerText = " Blue's Won!"
-    }
-    location.reload()
-}
-
-rollingDice = () => {
-
-  snakes = [
-    [27, 5],
-    [40, 3],
-    [43, 18],
-    [54, 31],
-    [66, 45],
-    [76, 58],
-    [99, 41],
-    [89, 53],
-  ]
-  ladders = [
-    [4, 25],
-    [13, 46],
-    [33, 49],
-    [42, 63],
-    [50, 69],
-    [62, 81],
-    [74, 92],
-
-]
-
-startGame()
-rollingDice()
-detectSnakesLadders(15)
-updatePosition(15)
-checkWinner('p1', 'p2')
-
-}
-
 document.querySelector(".diceButton").addEventListener("click", function () {
-  rollingSound.play()
+  rollingSound.play();
+  diceRoll = Math.floor(Math.random() * 6) + 1;
+  document.querySelector(".empty-bar").innerText = diceRoll;
+  rollingDice();
+});
 
-  diceRoll = Math.floor(Math.random() * 6) + 1
-  document.querySelector(".empty-bar").innerText = diceRoll
-  rollingDice(diceRoll) 
-})
-
-
-
-
-
-
-
-
-
+// ...Initialize on page load...
+startGame();
