@@ -32,8 +32,8 @@ let diceRoll = 0;
 
 // Show current turn
 playerTurn = () => {
-  // document.querySelector(".playerTurn").innerText =
-  //   pTurn === "red" ? "Red's turn" : "Blue's turn";
+  document.querySelector(".playerTurn").innerText =
+    pTurn === "red" ? "Red's turn" : "Blue's turn";
   if (pTurn === "red")
     document.querySelector(".playerTurn").innerText = "Red's turn"
   else if (pTurn === "blue") {
@@ -42,15 +42,17 @@ playerTurn = () => {
 }
 
 updatePosition = (position, playerId) => {
-  // To pick randomly number from 1 to 6 in 10 rows
+  // To pick random number from 1 to 6 in 10 rows
   const row = Math.ceil(position / 10);
   const col = position % 10 === 0 ? 10 : position % 10;
 
   let left, top;
-
+// if odd statement
   if (row % 2 !== 0) {
     left = (0 - col) * 54;
-  } else {
+  } 
+  // if even statement
+  else {
     left = (col - 10) * 54;
   }
 
