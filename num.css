@@ -49,6 +49,9 @@ p {
     font-size: 25px;
     text-align: center;
 }
+#numMassage {
+    color: rgb(192, 190, 190);
+}
 
 .attempts {
     background-color: white;
