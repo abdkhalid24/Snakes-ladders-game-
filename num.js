@@ -39,3 +39,15 @@ const secretStatement = () => {
     return;
   }
 };
+
+// ...Restart statement...
+document.addEventListener("DOMContentLoaded", function () {
+
+  let restartButton = document.querySelector(".restart");
+
+  restartButton.addEventListener("click", function () {
+
+    location.reload();
+
+  });
+});
