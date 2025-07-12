@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number</title>
+    <link rel="stylesheet" href="num.css">
+    <script defer src="num.js"></script>
+    </head>
+<body>
+    <h1>Guess the number</h1>
+
+        <div class="container">
+                <div class="quesion">
+                <p>We have selected a random number between 1 and 50. See if you can guess it in 5 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+                <p>Enter a number between 1 and 50: </p>
+                </div>
+                <div>
+                <input type="number" id="guessBar"> 
+                <p id="numMassage"></p>
+
+                <div class="buttons"> 
+                    <button onclick="secretStatement()" type="submit" class="submitBar">Submit</button> 
+                </div>
+                <div class="attempts">
+                    <p>number of attempts</p>
+                    <h2 class="atemptsDisplay">0</h2>
+                </div>
+                
+        </div>
+                
+</body>
+</html>
