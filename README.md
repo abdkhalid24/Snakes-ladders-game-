@@ -26,3 +26,8 @@ This language is one of the most popular and important in this project, as it us
 The standard language used to create and structure content on the web. It defines elements by using tags, In this game, I used it to add text, buttons, and a text field. Most importantly, it combined two functional and design languages: "javascript & CSS".
 3. **CSS**:
 The language responsible for designing and beautifying the entire project. Through it, I controlled the different sizes of text, standard dimensions, buttons, and main panels.
+
+### Difficult part of the project 
+The most difficult part of the project, which took me some time, is the restart mode for the page. When the tour is finished, the restart box is pressed, and then the request occurs. In Java script, I tried many times to link the main function to the run box, but it did not work. In the end, the matter was finally successful.
+### Best part of the project
+The best part of the game was when I added the design to it. I was more focused on thinking and being creative about this than any other part of the programming.

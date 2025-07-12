@@ -33,7 +33,7 @@ h1 {
 
 
 p {
-    font-size: 25px;
+    font-size: 28px;
     line-height: 1.5;
     
 }
@@ -54,12 +54,13 @@ p {
 }
 
 .attempts {
-    background-color: white;
-    height: 110px;
+    background-color: rgba(159, 161, 163, 0.902);
+    height: 140px;
     width: 100px;
     position: relative;
-    top: -70px;
-
+    top: -40px;
+    border: 2px solid black;
+    font-weight: bold;
     
 }
 .attempts p{
