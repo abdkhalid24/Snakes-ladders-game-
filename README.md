@@ -20,9 +20,9 @@ The number guessing game is an entertaining game that mostly relies on luck, whe
 
 ### pseudo code
 
-1. JavaScript:
-
-2. HTML:
-…..
-3. CSS:
-…..
+1. **JavaScript**:
+This language is one of the most popular and important in this project, as it uses some variables related to the numbers and boxes that are clicked, as well as the number of attempts for each player, including the main functions "secretStatement & numberAttempts", each of which is important for running and mastering the game to the fullest.
+2. **HTML**:
+The standard language used to create and structure content on the web. It defines elements by using tags, In this game, I used it to add text, buttons, and a text field. Most importantly, it combined two functional and design languages: "javascript & CSS".
+3. **CSS**:
+The language responsible for designing and beautifying the entire project. Through it, I controlled the different sizes of text, standard dimensions, buttons, and main panels.

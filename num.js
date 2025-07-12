@@ -1,8 +1,8 @@
 // ...Global variables here...
 let massageNum = document.querySelector("#numMassage");
-let restartButton = document.querySelector(".restart");
 let attemptsNum = document.querySelector(".atemptsDisplay");
 let secretNum = Math.round(Math.random() * 50);
+let restartButton = document.querySelector(".restart");
 let attempts = 0;
 let maxAttempts = 5;
 
