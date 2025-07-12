@@ -17,3 +17,12 @@ The number guessing game is an entertaining game that mostly relies on luck, whe
 ## wireframes 
 ![!\[alt text\](Wireframe.png](<Screenshot 2025-07-12 at 1.49.16 PM.png>)
 
+
+### pseudo code
+
+1. JavaScript:
+
+2. HTML:
+…..
+3. CSS:
+…..

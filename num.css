@@ -1,6 +1,7 @@
 
 body {
-    background-color: rgb(89, 213, 12);
+    background-color: white;
+    background-image: url(https://res.cloudinary.com/dtjjgiitl/image/upload/q_auto:good,f_auto,fl_progressive/v1752262362/b70hp38kpyprgx6mb028.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
@@ -28,6 +29,7 @@ h1 {
     margin: 15px auto;
     padding: 25px;
 }
+
 
 
 p {
