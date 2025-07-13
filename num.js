@@ -7,6 +7,8 @@ let restartButton = document.querySelector(".restart");
 let attempts = 0;
 let maxAttempts = 5;
 
+let winAudio = new Audio("mixkit-achievement-bell-600.wav")
+let loseAudio = new Audio("preview.mp3")
 // ...number of attempts in the game...
 const numberAttempts = () => {
   attempts++;
@@ -19,6 +21,7 @@ const secretStatement = () => {
 
   if (guessNum == secretNum) { 
     massageNum.innerHTML = "You're correct! good Job :)"; // if guessNum is equal to secret
+    winAudio.play()
   } else if (guessNum > secretNum && guessNum <= 50) { 
     massageNum.innerHTML = "Too high"; //if guessNum between the main number and less than 50
   } else if (guessNum < secretNum && guessNum <= 50 && guessNum >= 1) {
@@ -36,7 +39,7 @@ const secretStatement = () => {
     massageNum.textContent = "You've reached the maximum number of attempts!";
     submitBar.disabled = true;
     // when player reached the maximum num of attempts
-    
+    winAudio.play()
 };
 }
 
